@@ -34,8 +34,12 @@
 					"listen": "prerequest",
 					"script": {
 						"id": "8fe858dc-a899-44b5-9063-1827214cd4d9",
-						"exec": [],
-						"type": "text/javascript"
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -61,7 +65,7 @@
 						}
 					}
 				},
-				"url": "https://rahulshettyacademy.com/api/ecom/auth/login"
+				"url": "{{BaseUrl}}/api/ecom/auth/login"
 			},
 			"response": []
 		},
@@ -90,8 +94,12 @@
 					"listen": "prerequest",
 					"script": {
 						"id": "e4e98891-341d-4997-922e-31a60ff1e52e",
-						"exec": [],
-						"type": "text/javascript"
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -154,7 +162,7 @@
 						}
 					]
 				},
-				"url": "https://rahulshettyacademy.com/api/ecom/product/add-product"
+				"url": "{{BaseUrl}}/api/ecom/product/add-product"
 			},
 			"response": []
 		},
@@ -201,7 +209,7 @@
 						"type": "text"
 					}
 				],
-				"url": "https://rahulshettyacademy.com/api/ecom/product/delete-product/{{ProductID}}"
+				"url": "{{BaseUrl}}/api/ecom/product/delete-product/{{ProductID}}"
 			},
 			"response": []
 		},
@@ -230,8 +238,12 @@
 					"listen": "prerequest",
 					"script": {
 						"id": "bf3a4102-0eaa-4e02-a1cf-ed1f22e1ca03",
-						"exec": [],
-						"type": "text/javascript"
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -257,7 +269,7 @@
 						}
 					}
 				},
-				"url": "https://rahulshettyacademy.com/api/ecom/order/create-order"
+				"url": "{{BaseUrl}}/api/ecom/order/create-order"
 			},
 			"response": []
 		},
@@ -282,8 +294,12 @@
 					"listen": "prerequest",
 					"script": {
 						"id": "75f18c7b-b490-4a25-b04c-a20075b349a6",
-						"exec": [],
-						"type": "text/javascript"
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -301,11 +317,9 @@
 					}
 				],
 				"url": {
-					"raw": "https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id={{OrderID}}",
-					"protocol": "https",
+					"raw": "{{BaseUrl}}/api/ecom/order/get-orders-details?id={{OrderID}}",
 					"host": [
-						"rahulshettyacademy",
-						"com"
+						"{{BaseUrl}}"
 					],
 					"path": [
 						"api",
