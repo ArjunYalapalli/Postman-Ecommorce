@@ -16,6 +16,7 @@
 							"var jsonData = pm.response.json();\r",
 							"var token = jsonData.token;\r",
 							"pm.globals.set(\"TokenValue\",token)\r",
+							"pm.globals.set(\"UserId\",jsonData.userId)\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
@@ -126,7 +127,7 @@
 						},
 						{
 							"key": "productAddedBy",
-							"value": "69e71abbf86ba51a657828d4",
+							"value": "{{UserId}}",
 							"type": "text"
 						},
 						{
