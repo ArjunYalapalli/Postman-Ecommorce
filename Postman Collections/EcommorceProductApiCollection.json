@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "907dbff5-d716-4107-aee2-9e1541b84264",
+		"name": "ClientCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LoginAPI",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d018ff9c-d98d-4aa6-acbd-c14ddc569d79",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var token = jsonData.token;\r",
+							"pm.globals.set(\"TokenValue\",token)\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Token is not empty\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.token).to.not.be.empty;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8fe858dc-a899-44b5-9063-1827214cd4d9",
+						"exec": [],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "5bc4c151-a2a3-4df1-84f4-7611dd8cbbb2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userEmail\": \"arjunyalapalli44@gmail.com\",\r\n    \"userPassword\": \"Arjun@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://rahulshettyacademy.com/api/ecom/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "00a31400-fef3-4632-b1a5-26a24fa3ec81",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var productId = jsonData.productId;\r",
+							"pm.globals.set(\"ProductID\", productId);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e4e98891-341d-4997-922e-31a60ff1e52e",
+						"exec": [],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "e46d1e50-58f1-4e2d-b6af-18b4e767d647",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TokenValue}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "productName",
+							"value": "HTTP Codes",
+							"type": "text"
+						},
+						{
+							"key": "productAddedBy",
+							"value": "69e71abbf86ba51a657828d4",
+							"type": "text"
+						},
+						{
+							"key": "productCategory",
+							"value": "API",
+							"type": "text"
+						},
+						{
+							"key": "productSubCategory",
+							"value": "Status codes",
+							"type": "text"
+						},
+						{
+							"key": "productPrice",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "productDescription",
+							"value": "API request status codes",
+							"type": "text"
+						},
+						{
+							"key": "productFor",
+							"value": "API Testing",
+							"type": "text"
+						},
+						{
+							"key": "productImage",
+							"type": "file",
+							"uuid": "cfe2cd6f-c3b7-4712-9288-b9237a357a7a",
+							"src": "/C:/Users/Dell/OneDrive/Pictures/Screenshots 1/Screenshot 2024-12-17 001052.png"
+						}
+					]
+				},
+				"url": "https://rahulshettyacademy.com/api/ecom/product/add-product"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b010ab7e-a35c-461c-904d-7de49d74e4e5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "583eafc3-883a-434a-9a37-1839fe444f86",
+						"exec": [],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "d5c68499-cc3f-41e3-bb6e-1b290667d60b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TokenValue}}",
+						"type": "text"
+					}
+				],
+				"url": "https://rahulshettyacademy.com/api/ecom/product/delete-product/{{ProductID}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Place Order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2ca93c93-86f2-42fb-8586-41ab7c6bfd55",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var orderID = jsonData.orders[0];\r",
+							"pm.globals.set(\"OrderID\", orderID);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bf3a4102-0eaa-4e02-a1cf-ed1f22e1ca03",
+						"exec": [],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "1390271b-cdac-4870-8e9c-13616343e938",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TokenValue}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orders\": [\r\n        {\r\n            \"country\": \"India\",\r\n            \"productOrderedId\": \"{{ProductID}}\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://rahulshettyacademy.com/api/ecom/order/create-order"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a984c131-d048-4e85-ad4b-cd3817543df8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "75f18c7b-b490-4a25-b04c-a20075b349a6",
+						"exec": [],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "3d4d8b6e-d002-42a9-af72-c1f5c68ef8b9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TokenValue}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id={{OrderID}}",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"api",
+						"ecom",
+						"order",
+						"get-orders-details"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{OrderID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
