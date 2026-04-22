@@ -210,7 +210,7 @@
 						"type": "text"
 					}
 				],
-				"url": "{{BaseUrl}}/api/ecom/product/delete-product/69e8a846f86ba51a657c66eb"
+				"url": "{{BaseUrl}}/api/ecom/product/delete-product/69e8bfb8f86ba51a657cc862"
 			},
 			"response": []
 		},
