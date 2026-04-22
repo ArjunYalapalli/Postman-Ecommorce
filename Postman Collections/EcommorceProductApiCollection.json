@@ -158,8 +158,8 @@
 						{
 							"key": "productImage",
 							"type": "file",
-							"src": "/C:/Users/Dell/OneDrive/Pictures/Screenshots 1/statusCodes.png",
-							"disabled": true
+							"uuid": "08f41366-8f00-4d17-bd1d-35ac0b304ef0",
+							"src": "/C:/Users/Dell/OneDrive/Documents/Desktop/hoodie.jpg"
 						}
 					]
 				},
